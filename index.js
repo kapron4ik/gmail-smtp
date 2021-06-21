@@ -25,10 +25,17 @@ const port = process.env.PORT || 3010;
 
 // app.cors({origin: ['http://localhost:3000/']})
 
-app.options('*', cors())
+// app.options('*', cors())
 
-// app.use(cors(corsOptions));
+// app.use(cors());
 
+
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 // app.use(cors({origin: ['http://localhost:3000/', "http://localhost:3001/"]}))
 //поменять на расшаренную страницу портфолио { origin: "httpы:\\safronman.github.io" }
