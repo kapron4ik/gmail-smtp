@@ -6,14 +6,14 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3010;
 
-const corsOptions ={
-    origin:'http://localhost:3000',
-    // origin:['https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO'],
-    methods: "GET,PUT,POST,DELETE",
-    // credentials:true,
-    //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
+// const corsOptions ={
+//     origin:'http://localhost:3000',
+//     // origin:['https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO'],
+//     methods: "GET,PUT,POST,DELETE",
+//     // credentials:true,
+//     //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// }
 
 // app.use(
 //     cors({
@@ -25,7 +25,9 @@ const corsOptions ={
 
 // app.cors({origin: ['http://localhost:3000/']})
 
-app.use(cors(corsOptions));
+app.options('*', cors())
+
+// app.use(cors(corsOptions));
 
 
 // app.use(cors({origin: ['http://localhost:3000/', "http://localhost:3001/"]}))
@@ -53,7 +55,7 @@ app.get('/', function (req, res) {
     res.send('Hello World!')
 })
 
-app.post('/sendMessage', cors(corsOptions), async function (req, res) {
+app.post('/sendMessage', async function (req, res) {
     let {name, email, subject, message} = req.body
 
     let info = await transporter.sendMail({
