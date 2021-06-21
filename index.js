@@ -6,16 +6,9 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3010;
 
-router.get("/", (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Max-Age", "1800");
-    res.setHeader("Access-Control-Allow-Headers", "content-type");
-    res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" );
-});
-
 const corsOptions ={
-    origin:'http://localhost:3000',
+    // origin:'http://localhost:3000',
+    origin:'https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO/',
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
