@@ -49,11 +49,11 @@ let transporter = nodemailer.createTransport({
 
 });
 
-app.get('/', cors(), function (req, res) {
+app.get('/', function (req, res) {
     res.send('Hello World!')
 })
 
-app.post('/sendMessage', cors(), async function (req, res) {
+app.post('/sendMessage', async function (req, res) {
     let {name, email, subject, message} = req.body
 
     let info = await transporter.sendMail({
