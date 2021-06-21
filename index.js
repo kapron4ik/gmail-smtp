@@ -6,6 +6,11 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3010;
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 // const corsOptions ={
 //     // origin:'http://localhost:3000',
 //     origin:['https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO'],
@@ -15,26 +20,18 @@ const port = process.env.PORT || 3010;
 //     optionSuccessStatus:200
 // }
 
-// app.use(
-//     cors({
-//         origin: ["http://localhost:3000"],
-//         methods: "GET,PUT,POST,DELETE",
-//         optionsSuccessStatus: 200,
-//     })
-// );
+app.use(
+    cors({
+        origin: ["http://localhost:3000"],
+        methods: "GET,PUT,POST,DELETE",
+        optionsSuccessStatus: 200,
+    })
+);
 
-const whitelist = ['http://localhost:3000', 'https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO']
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
-        }
-    },
-}
 
-app.use(cors(corsOptions));
+
+
+// app.use(cors(corsOptions));
 
 
 // app.use(cors({origin: 'http://localhost:3000/'}))
