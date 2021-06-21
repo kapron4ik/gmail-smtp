@@ -56,7 +56,8 @@ const port = process.env.PORT || 3010;
 //     next();
 // });
 //
-app.use(cors({origin: ['http://localhost:3000', "https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO"]}))
+// app.use(cors({origin: ['http://localhost:3000', "https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO"]}))
+app.use(cors({origin: ["https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO", 'http://localhost:3000']}))
 //поменять на расшаренную страницу портфолио { origin: "httpы:\\safronman.github.io" }
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
