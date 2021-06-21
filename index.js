@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3010;
 
-const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO/'];
+const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://kapron4ik.github.io'];
 
 
 app.use(cors({
