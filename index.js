@@ -23,10 +23,12 @@ const port = process.env.PORT || 3010;
 //     })
 // );
 
-app.use(cors());
+// app.cors({origin: ['http://localhost:3000/']})
+
+// app.use(cors());
 
 
-// app.use(cors({origin: 'http://localhost:3000/'}))
+app.use(cors({origin: ['http://localhost:3000/', "http://localhost:3001/"]}))
 //поменять на расшаренную страницу портфолио { origin: "httpы:\\safronman.github.io" }
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
