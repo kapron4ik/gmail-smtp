@@ -24,10 +24,6 @@ const port = process.env.PORT || 3010;
 //     })
 // );
 
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-});
-
 
 
 app.use(cors());
