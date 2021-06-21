@@ -6,15 +6,24 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3010;
 
-const corsOptions ={
-    // origin:'http://localhost:3000',
-    origin:['https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO'],
-    methods: "GET,PUT,POST,DELETE",
-    // credentials:true,
-    //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+// const corsOptions ={
+//     // origin:'http://localhost:3000',
+//     origin:['https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO'],
+//     methods: "GET,PUT,POST,DELETE",
+//     // credentials:true,
+//     //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// }
+// app.use(cors(corsOptions));
+app.use(
+    cors({
+        origin: ["http://localhost:3000"],
+        methods: "GET,PUT,POST,DELETE",
+        optionsSuccessStatus: 200,
+    })
+);
+
+
 // app.use(cors({origin: 'http://localhost:3000/'}))
 //поменять на расшаренную страницу портфолио { origin: "httpы:\\safronman.github.io" }
 app.use(bodyParser.urlencoded({extended: false}))
