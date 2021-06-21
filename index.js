@@ -6,7 +6,6 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3010;
 
-
 // const corsOptions ={
 //     // origin:'http://localhost:3000',
 //     origin:['https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO'],
@@ -23,8 +22,6 @@ const port = process.env.PORT || 3010;
 //         optionsSuccessStatus: 200,
 //     })
 // );
-
-
 
 app.use(cors());
 
@@ -50,11 +47,11 @@ let transporter = nodemailer.createTransport({
 
 });
 
-app.get('/', (req, res) => {
+app.get('/', cors(), function (req, res) {
     res.send('Hello World!')
 })
 
-app.post('/sendMessage', async function (req, res) {
+app.post('/sendMessage', cors(), async function (req, res) {
     let {name, email, subject, message} = req.body
 
     let info = await transporter.sendMail({
