@@ -6,23 +6,23 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3010;
 
-const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000'];
-
-
-app.use(cors({
-    origin: whitelist,
-    methods: "GET,PUT,POST,DELETE, OPTIONS",
-    preflightContinue: true,
-    optionsSuccessStatus: 204
-}));
-
-app.use(function(req, res, next) {
-    if(whitelist.indexOf(req.headers.origin) > -1) res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader('Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, Content-Type, Accept');
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.setHeader("Access-Control-Allow-Credentials", true);
-    next();
-});
+// const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000'];
+//
+//
+// app.use(cors({
+//     origin: whitelist,
+//     methods: "GET,PUT,POST,DELETE, OPTIONS",
+//     preflightContinue: true,
+//     optionsSuccessStatus: 204
+// }));
+//
+// app.use(function(req, res, next) {
+//     if(whitelist.indexOf(req.headers.origin) > -1) res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+//     res.setHeader('Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, Content-Type, Accept');
+//     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//     res.setHeader("Access-Control-Allow-Credentials", true);
+//     next();
+// });
 
 
 // const corsOptions ={
@@ -56,7 +56,7 @@ app.use(function(req, res, next) {
 //     next();
 // });
 //
-// app.use(cors({origin: ['http://localhost:3000/', "http://localhost:3001/"]}))
+app.use(cors({origin: ['http://localhost:3000', "https://kapron4ik.github.io/IT_INCUBATOR_PORTFOLIO"]}))
 //поменять на расшаренную страницу портфолио { origin: "httpы:\\safronman.github.io" }
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
