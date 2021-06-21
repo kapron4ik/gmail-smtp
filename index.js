@@ -6,9 +6,9 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3010;
 
-app.use(cors());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(cors())
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 let smtp_login = process.env.SMTP_LOGIN || '---';
 let smtp_password = process.env.SMTP_PASSWORD || '---';
