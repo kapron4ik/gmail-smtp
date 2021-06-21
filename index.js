@@ -3,12 +3,15 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const app = express()
-const port = 3010
+const app = express();
+const port = process.env.PORT || 3010;
 
-app.use(cors())
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+let smtp_login = process.env.SMTP_LOGIN || '---';
+let smtp_password = process.env.SMTP_PASSWORD || '---';
 
 let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -17,12 +20,10 @@ let transporter = nodemailer.createTransport({
     // secure: false,
     // requireTLS: true,
     auth: {
-        user: 'danna.nikitina@gmail.com', // generated ethereal user
-        pass: 'greece06', // generated ethereal password
+        user: smtp_login, // generated ethereal user
+        pass: smtp_password, // generated ethereal password
     },
-    // tls:{
-    //     rejectUnauthorized: false
-    // }
+
 });
 
 app.get('/', (req, res) => {
