@@ -53,7 +53,7 @@ app.get('/', function (req, res) {
     res.send('Hello World!')
 })
 
-app.post('/sendMessage', async function (req, res) {
+app.post('/sendMessage', cors(corsOptions), async function (req, res) {
     let {name, email, subject, message} = req.body
 
     let info = await transporter.sendMail({
