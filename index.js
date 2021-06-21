@@ -20,18 +20,18 @@ app.use((req, res, next) => {
 //     optionSuccessStatus:200
 // }
 
-app.use(
-    cors({
-        origin: ["http://localhost:3000"],
-        methods: "GET,PUT,POST,DELETE",
-        optionsSuccessStatus: 200,
-    })
-);
+// app.use(
+//     cors({
+//         origin: ["http://localhost:3000"],
+//         methods: "GET,PUT,POST,DELETE",
+//         optionsSuccessStatus: 200,
+//     })
+// );
 
 
 
 
-// app.use(cors(corsOptions));
+app.use(cors());
 
 
 // app.use(cors({origin: 'http://localhost:3000/'}))
